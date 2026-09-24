@@ -866,6 +866,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transition: transform 0.6s var(--ease);
 }
 .guide-banner img { aspect-ratio: 16 / 5; }
+/* 人物立绘 / 图标类图片：完整展示（不裁剪），让面部居中完整出现 */
+.flow-img--fit img { object-fit: contain; }
 .flow-img:hover::before { opacity: 1; animation: flow-spin 1.5s linear infinite; }
 .flow-img:hover {
   transform: perspective(900px) rotateX(4deg) rotateY(-4deg) translateY(-8px) scale(1.015);
