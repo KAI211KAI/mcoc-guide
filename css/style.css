@@ -563,6 +563,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .champ-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
   background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius);
@@ -576,15 +579,23 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .champ-card__media {
-  --cls: var(--class-cosmic);
   position: relative;
-  height: 150px;
+  height: 200px;
   display: grid;
   place-items: center;
   background:
-    radial-gradient(circle at 50% 20%, var(--cls) 0%, transparent 65%),
+    radial-gradient(circle at 50% 20%, var(--cls, var(--class-cosmic)) 0%, transparent 65%),
     linear-gradient(160deg, #1a1f2e, #0b0d14);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+/* 英雄立绘：绝对定位铺满媒体区，居中裁剪 */
+.champ-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
 /* 发光头像首字 */
 .champ-card__initials {
@@ -598,6 +609,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .champ-card__class {
   position: absolute;
   top: 12px; left: 12px;
+  z-index: 2;
   padding: 3px 12px;
   border-radius: 999px;
   font-size: 0.72rem;
@@ -610,6 +622,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .champ-card__stars {
   position: absolute;
   top: 12px; right: 12px;
+  z-index: 2;
   font-size: 0.72rem;
   color: var(--gold);
   letter-spacing: 0.05em;
