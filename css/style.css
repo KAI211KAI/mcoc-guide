@@ -868,6 +868,27 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .guide-banner img { aspect-ratio: 16 / 5; }
 /* 人物立绘 / 图标类图片：完整展示（不裁剪），让面部居中完整出现 */
 .flow-img--fit img { object-fit: contain; }
+/* 组合拼图：单个流光边框内用 grid 拼接多张官网截图 / 图标 */
+.flow-img.flow-montage {
+  display: grid;
+  gap: 3px;
+  aspect-ratio: 16 / 9;
+  grid-auto-rows: 1fr;
+  background: var(--bg-0);
+}
+.flow-img.flow-montage.guide-banner { aspect-ratio: 16 / 5; }
+.flow-img.flow-montage img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: contain;
+  background: var(--bg-3);
+  border-radius: calc(var(--radius) - 6px);
+}
+.flow-montage.c2 { grid-template-columns: repeat(2, 1fr); }
+.flow-montage.c3 { grid-template-columns: repeat(3, 1fr); }
+.flow-montage.c5 { grid-template-columns: repeat(5, 1fr); }
+.flow-montage.c6 { grid-template-columns: repeat(3, 1fr); }
 .flow-img:hover::before { opacity: 1; animation: flow-spin 1.5s linear infinite; }
 .flow-img:hover {
   transform: perspective(900px) rotateX(4deg) rotateY(-4deg) translateY(-8px) scale(1.015);
