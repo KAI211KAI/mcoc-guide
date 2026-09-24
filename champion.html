@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>英雄详情 · 漫威超级争霸战 MCOC</title>
+  <meta name="description" content="漫威超级争霸战英雄详情：查看英雄的职业归属、参考星级、实战定位与科普介绍。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============ 顶部导航 ============ -->
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="logo" href="index.html">
+        <span class="logo-mark">M</span>
+        <span class="logo-name">MCOC <b>·</b> 漫威超级争霸战</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">首页</a>
+        <a href="champions.html" class="active">英雄图鉴</a>
+        <a href="strategy.html">攻略指南</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="打开导航菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ 内页头部横幅 ============ -->
+    <section class="page-hero page-hero--champ">
+      <div class="container">
+        <span class="eyebrow">Champion Spotlight</span>
+        <h1>英雄 <em>详情</em></h1>
+        <p>查看英雄的职业归属、参考星级与实战定位，了解其在漫威超级争霸战中的表现。</p>
+      </div>
+    </section>
+
+    <!-- ============ 详情内容（由 champion.js 动态渲染） ============ -->
+    <section class="section">
+      <div class="container">
+        <div id="champion-detail"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 页脚 ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <a class="logo" href="index.html">
+        <span class="logo-mark">M</span>
+        <span class="logo-name">MCOC <b>·</b> 漫威超级争霸战</span>
+      </a>
+      <p class="disclaimer">
+        本站为粉丝自发制作的科普与攻略网站，与 Marvel、Kabam 无任何官方从属关系。星级数据仅作科普示意，实际随游戏版本调整。
+      </p>
+      <p class="copyright">© 2026 MCOC 粉丝科普站 · 非商业用途</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/champion.js"></script>
+</body>
+</html>
