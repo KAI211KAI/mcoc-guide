@@ -6,7 +6,15 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   renderFilters();
-  renderChampions(CHAMPIONS);
+  // 支持 URL 参数 ?cls=cosmic 等，进入页面时自动选中对应职业
+  const clsFromUrl = new URLSearchParams(window.location.search).get("cls");
+  if (clsFromUrl && CLASS_NAMES[clsFromUrl]) {
+    const target = document.querySelector(`.filter-btn[data-cls="${clsFromUrl}"]`);
+    if (target) onFilter(target, clsFromUrl);
+    else renderChampions(CHAMPIONS);
+  } else {
+    renderChampions(CHAMPIONS);
+  }
 });
 
 /* 当前选中的职业筛选（null 表示全部） */
