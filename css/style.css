@@ -796,6 +796,89 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* ============================================================
+   攻略增强：图文卡片 + 3D 流光边框律动
+   ============================================================ */
+.guide-lead {
+  color: var(--text-dim);
+  margin: 14px 0 6px;
+  max-width: 780px;
+}
+.guide-banner { margin: 20px 0 4px; }
+
+/* 图文小点卡片网格 */
+.guide-tips {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 18px;
+}
+.guide-tip {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-2);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+.guide-tip:hover { transform: translateY(-4px); border-color: rgba(230, 36, 41, 0.35); }
+.guide-tip__body { padding: 18px 20px 20px; }
+.guide-tip__tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--red-bright);
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+.guide-tip__body h4 { font-size: 1.05rem; color: var(--gold); margin-bottom: 8px; }
+.guide-tip__body p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.7; }
+
+/* 3D 流光边框图片：鼠标悬停时立体倾斜 + 边框流光转动 */
+.flow-img {
+  position: relative;
+  padding: 3px;
+  border-radius: var(--radius);
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease);
+}
+.flow-img::before {
+  content: "";
+  position: absolute;
+  inset: -120%;
+  z-index: 0;
+  background: conic-gradient(from 0deg,
+    var(--red-bright), var(--gold), var(--class-tech),
+    var(--class-mystic), var(--red-bright));
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.flow-img img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: calc(var(--radius) - 3px);
+  background: var(--bg-2);
+  transition: transform 0.6s var(--ease);
+}
+.guide-banner img { aspect-ratio: 16 / 5; }
+.flow-img:hover::before { opacity: 1; animation: flow-spin 1.5s linear infinite; }
+.flow-img:hover {
+  transform: perspective(900px) rotateX(4deg) rotateY(-4deg) translateY(-8px) scale(1.015);
+  box-shadow: 0 26px 55px -20px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(230, 36, 41, 0.4);
+}
+.flow-img:hover img { transform: scale(1.06); }
+@keyframes flow-spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 700px) {
+  .guide-tips { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    攻略页：锚点章节 + 模式卡片
    ============================================================ */
 .guide-layout {
