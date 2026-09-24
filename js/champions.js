@@ -77,11 +77,15 @@ function championCard(c) {
   const starStr = renderStars(c.stars);
   // 在卡片根元素上声明职业色变量（--cls），供头像背景与 hover 边框共同继承
   // 注意：动态渲染的卡片不加 scroll-in（其观察器在静态元素渲染时已初始化，会导致卡片不可见）
+  // 整张卡片为超链接：点击跳转到官网英雄简介页（新标签页打开）
   return `
-    <article class="champ-card" data-cls="${c.cls}" style="--cls: var(--class-${c.cls})">
+    <a class="champ-card" href="${c.link}" target="_blank" rel="noopener noreferrer"
+       title="${c.name}官网简介" data-cls="${c.cls}" style="--cls: var(--class-${c.cls})">
       <div class="champ-card__media">
-        <!-- 头像区：用中文名首字 + 职业色渐变，规避版权且风格统一 -->
-        <span class="champ-card__initials">${c.name.slice(0, 1)}</span>
+        <!-- 英雄立绘：来自官网；加载失败时回退到中文名首字发光占位 -->
+        <img class="champ-card__img" src="${c.img}" alt="${c.name}" loading="lazy"
+             onerror="this.style.display='none'">
+        <span class="champ-card__initials" aria-hidden="true">${c.name.slice(0, 1)}</span>
         <span class="champ-card__class">${CLASS_NAMES[c.cls]}</span>
         <span class="champ-card__stars">${starStr}</span>
       </div>
@@ -89,7 +93,7 @@ function championCard(c) {
         <h3>${c.name} <small>${c.en}</small></h3>
         <p>${c.desc}</p>
       </div>
-    </article>`;
+    </a>`;
 }
 
 /* 将星级数字转为 ★ 字符串（空星用 ☆ 表示，直观展示参考星级） */
