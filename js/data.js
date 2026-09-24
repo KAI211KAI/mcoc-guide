@@ -25,6 +25,52 @@ const CLASS_NAMES = {
   mystic: "神秘"
 };
 
+/* 职业定位资料（供英雄详情页展示，基于职业层面的通用特性） */
+const CLASS_DETAILS = {
+  cosmic: {
+    label: "宇宙",
+    en: "Cosmic",
+    tagline: "来自星海与神域的强大存在",
+    advantage: "普遍拥有高基础属性与爆发型技能，增益叠加后上限极高，攻防一体，是均衡主力。",
+    disadvantage: "部分依赖增益与能量，面对净化增益或克制增益的对手时会受到削弱。"
+  },
+  tech: {
+    label: "科技",
+    en: "Tech",
+    tagline: "以装甲与尖端武器见长",
+    advantage: "擅长施加护盾、减益与能量控制，克制能量型与增益型对手。",
+    disadvantage: "部分依赖装甲与科技机制，面对破甲与减益克星时较为脆弱。"
+  },
+  mutant: {
+    label: "变异",
+    en: "Mutant",
+    tagline: "因基因变异而觉醒的能力者",
+    advantage: "或以自愈、或以精神能量、或以元素控制见长，减益多样，风格灵活。",
+    disadvantage: "部分依赖状态叠层，面对科技系克制与免疫减益的对手时会受制。"
+  },
+  skill: {
+    label: "格斗",
+    en: "Skill",
+    tagline: "训练有素的格斗大师",
+    advantage: "擅长持续流血、致残与闪避反击，节奏极快，克制闪避与减益流。",
+    disadvantage: "多为近战脆皮，面对反伤或强控制型对手需谨慎走位。"
+  },
+  science: {
+    label: "科学",
+    en: "Science",
+    tagline: "药剂、辐射与实验铸就",
+    advantage: "因实验获得能力的英雄输出与生存能力均衡，新手友好，克制减益。",
+    disadvantage: "部分依赖增益叠加，面对净化与神秘系法术时常被针对。"
+  },
+  mystic: {
+    label: "神秘",
+    en: "Mystic",
+    tagline: "掌控魔法与因果之力",
+    advantage: "掌控魔法与增益减益，可治疗、反伤与控制，是上限极高的技术型职业。",
+    disadvantage: "对增益克星与高爆发物理输出较为敏感，需把控节奏。"
+  }
+};
+
 /* 英雄数据集（共 180 位，六大职业各 30 位） */
 const CHAMPIONS = [
   /* ==================== 宇宙系 Cosmic（30） ==================== */
